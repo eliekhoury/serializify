@@ -1,6 +1,6 @@
 {
   "name": "serializify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Serialize your javascript state objects and reload them by preserving references.",
   "main": "src/index.js",
   "repository": {

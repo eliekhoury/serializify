@@ -1,3 +1,7 @@
+const config = {
+  idKey: "__id__",
+};
+
 function generateId() {
   const random = Math.random().toString(16).slice(2, 10);
   return `0x${random}`;
@@ -5,14 +9,14 @@ function generateId() {
 
 function scan(obj, map = {}) {
   if (typeof obj === "object") {
-    if (!obj.hasOwnProperty("_id")) {
+    if (!obj.hasOwnProperty(config.idKey)) {
       let id = generateId();
       while (map.hasOwnProperty(id)) {
         id = generateId();
       }
-      obj._id = id;
+      obj[config.idKey] = id;
 
-      const content = Object.keys(obj).filter((key) => key !== "_id");
+      const content = Object.keys(obj).filter((key) => key !== config.idKey);
       const type = obj.constructor && obj.constructor.name;
       const children = content.map((key) => {
         const child = obj[key];
@@ -22,7 +26,7 @@ function scan(obj, map = {}) {
 
       map[id] = [obj.constructor && obj.constructor.name, children];
     }
-    return [obj._id];
+    return [obj[config.idKey]];
   } else {
     return obj;
   }
@@ -44,7 +48,7 @@ const resolve = (cursor, map, resolved) => {
       if (map.hasOwnProperty(root)) {
         const type = map[root];
         resolved[root] = type === "Array" ? [] : {};
-        resolved[root]._id = root;
+        resolved[root][config.idKey] = root;
         const object = resolve(map[root], map, resolved);
         if (type === "Array") resolved[root].push(...object);
         else Object.assign(resolved[root], object);
