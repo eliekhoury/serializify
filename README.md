@@ -46,7 +46,7 @@ This library has a side effect, it will mutate the state being serialized by add
 * Support incremental serialization and deserialization (will only work if the id key is not deleted)
 
 ## Contributing
-Pull requests are welcome. Open an issue first to discuss for major changes.
+Pull requests are welcome. Open an issue first to discuss any major changes.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
