@@ -1,0 +1,24 @@
+{
+  "name": "serializify",
+  "version": "1.0.0",
+  "description": "Serialize your javascript state objects and reload them by preserving references.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliekhoury/serializify.git"
+  },
+  "keywords": [
+    "json",
+    "serialize",
+    "redux"
+  ],
+  "author": "Elie Khoury",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliekhoury/serializify/issues"
+  },
+  "homepage": "https://github.com/eliekhoury/serializify#readme"
+}
